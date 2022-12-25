@@ -39,7 +39,7 @@ export default async function (req, res) {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: generatePrompt(url),
-      max_tokens: 1000,
+      max_tokens: 4000,
       // prompt: "amazon.in",
       temperature: 0.6,
     });
@@ -61,9 +61,11 @@ export default async function (req, res) {
   }
 }
 function generatePrompt(url) {
-  return `write all test cases for ${url}`;
-
+  return `write 50 test cases for ${url} in excel sheet with test name, test description, test steps and expected result 
   
-
+  Test Name:
+  Test Description:
+  Test Steps:
+  Expected Result: `;
 }
 
